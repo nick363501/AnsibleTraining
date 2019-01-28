@@ -1,0 +1,15 @@
+- name:  Stop the apache web service
+  hosts:  web 
+  become: yes 
+
+  tasks:
+   - name: stop httpd
+     service:
+       name:  httpd
+       state: stopped
+
+   - name: uninstall apache
+     yum:
+       name: httpd
+       state: absent
+
